@@ -9,23 +9,30 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "products")
+@Table(name = "orders")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "title")
-    private String title;
+    @Column(name = "total_price")
+    private int total_price;
 
-    @Column(name = "price")
-    private Integer price;
+    @Column(name = "address")
+    private String address;
 
-    @OneToMany(mappedBy = "productId")
+    @Column(name = "phone")
+    private String phone;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Long userId;
+
+    @OneToMany(mappedBy = "orderId")
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    List<OrderItem> orderItems;
+    private List<OrderItem> orderItems;
 }
