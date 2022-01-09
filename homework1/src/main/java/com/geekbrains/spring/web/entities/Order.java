@@ -20,7 +20,7 @@ public class Order {
     private Long id;
 
     @Column(name = "total_price")
-    private int total_price;
+    private int totalPrice;
 
     @Column(name = "address")
     private String address;
