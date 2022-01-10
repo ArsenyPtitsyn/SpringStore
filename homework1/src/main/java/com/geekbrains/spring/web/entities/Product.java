@@ -12,7 +12,6 @@ import java.util.List;
 @Table(name = "products")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,4 +27,10 @@ public class Product {
     @OneToMany(mappedBy = "productId")
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     List<OrderItem> orderItems;
+
+    public Product(Long id, String title, Integer price) {
+        this.id = id;
+        this.title = title;
+        this.price = price;
+    }
 }

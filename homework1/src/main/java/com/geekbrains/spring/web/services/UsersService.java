@@ -3,6 +3,7 @@ package com.geekbrains.spring.web.services;
 import com.geekbrains.spring.web.entities.Role;
 import com.geekbrains.spring.web.entities.User;
 import com.geekbrains.spring.web.repositories.UsersRepository;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -17,12 +18,17 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@Data
 @RequiredArgsConstructor
 public class UsersService implements UserDetailsService {
     private final UsersRepository usersRepository;
 
     public Optional<User> findByUsername(String username) {
         return usersRepository.findByUsername(username);
+    }
+
+    public Optional<User> findById(Long id) {
+        return usersRepository.findById(id);
     }
 
     @Override
