@@ -3,7 +3,7 @@ package com.geekbrains.spring.web.controllers;
 import com.geekbrains.spring.web.dto.JwtRequest;
 import com.geekbrains.spring.web.dto.JwtResponse;
 import com.geekbrains.spring.web.exceptions.AppError;
-import com.geekbrains.spring.web.services.UserService;
+import com.geekbrains.spring.web.services.UsersService;
 import com.geekbrains.spring.web.utils.JwtTokenUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class AuthController {
-    private final UserService userService;
+    private final UsersService usersService;
     private final JwtTokenUtil jwtTokenUtil;
     private final AuthenticationManager authenticationManager;
 
@@ -30,7 +30,7 @@ public class AuthController {
         } catch (BadCredentialsException e) {
             return new ResponseEntity<>(new AppError(HttpStatus.UNAUTHORIZED.value(), "Incorrect username or password"), HttpStatus.UNAUTHORIZED);
         }
-        UserDetails userDetails = userService.loadUserByUsername(authRequest.getUsername());
+        UserDetails userDetails = usersService.loadUserByUsername(authRequest.getUsername());
         String token = jwtTokenUtil.generateToken(userDetails);
         return ResponseEntity.ok(new JwtResponse(token));
     }

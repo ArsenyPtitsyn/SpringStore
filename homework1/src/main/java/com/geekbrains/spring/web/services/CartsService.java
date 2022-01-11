@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct;
 
 @Service
 @RequiredArgsConstructor
-public class CartService {
+public class CartsService {
     private final ProductsService productsService;
     private Cart cart;
 
