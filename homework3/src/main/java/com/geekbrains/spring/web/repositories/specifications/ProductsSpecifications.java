@@ -17,6 +17,6 @@ public class ProductsSpecifications {
     }
 
 //    public static Specification<Product> categoryTitleLike(String categoryTitlePart) {
-//        return (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.like(root.joinList("categories"), String.format("%%%s%%", categoryTitlePart));
+//        return (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.like(???);
 //    }
 }
