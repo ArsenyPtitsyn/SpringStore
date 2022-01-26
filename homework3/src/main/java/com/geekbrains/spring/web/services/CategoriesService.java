@@ -24,10 +24,10 @@ public class CategoriesService {
     private final CategoriesRepository categoriesRepository;
     public final CategoryConverter categoryConverter;
 
-    public Page<Category> findAll(String partTitle, Integer page) {
+    public Page<Category> findAll(String title, Integer page) {
         Specification<Category> spec = Specification.where(null);
-        if (partTitle != null) {
-            spec = spec.and(CategoriesSpecifications.titleLike(partTitle));
+        if (title != null) {
+            spec = spec.and(CategoriesSpecifications.titleLike(title));
         }
 
         return categoriesRepository.findAll(spec, PageRequest.of(page - 1, 5));

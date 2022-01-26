@@ -3,8 +3,6 @@ package com.geekbrains.spring.web.repositories.specifications;
 import com.geekbrains.spring.web.entities.Product;
 import org.springframework.data.jpa.domain.Specification;
 
-import javax.persistence.criteria.CriteriaBuilder;
-
 public class ProductsSpecifications {
     public static Specification<Product> priceGreaterOrEqualsThan(Integer price) {
         return (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.greaterThanOrEqualTo(root.get("price"), price);
