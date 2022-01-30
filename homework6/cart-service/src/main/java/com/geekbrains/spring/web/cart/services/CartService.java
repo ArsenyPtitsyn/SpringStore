@@ -2,8 +2,8 @@ package com.geekbrains.spring.web.cart.services;
 
 import com.geekbrains.spring.web.api.exceptions.ResourceNotFoundException;
 import com.geekbrains.spring.web.cart.dto.Cart;
-import com.geekbrains.spring.web.core.entities.Product;
 
+import com.geekbrains.spring.web.core.entities.Product;
 import com.geekbrains.spring.web.core.services.ProductsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
